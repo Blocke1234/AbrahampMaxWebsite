@@ -1,10 +1,28 @@
 'use client'
-
+const router = useRouter()
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { Button } from '../../components/ui/Button'
 import toast from 'react-hot-toast'
+const handleSubscribe = async (tierName: string) => {
+  if (!session) {
+    router.push(`/signup?tier=${tierName.toLowerCase()}`)
+    return
+  }
+
+  setIsLoading(tierName)
+  try {
+    // This would call your Stripe API
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    toast.success(`Subscribed to ${tierName} tier!`)
+  } catch (error) {
+    toast.error('Subscription failed. Please try again.')
+  } finally {
+    setIsLoading(null)
+  }
+}
 
 interface Tier {
   name: string
