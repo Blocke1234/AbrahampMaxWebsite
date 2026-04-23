@@ -15,12 +15,11 @@ export const authOptions = {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
+      async authorize(credentials: any) {
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Email and password required')
         }
 
-        // Check if user exists in Supabase
         const { data: user, error } = await supabase
           .from('users')
           .select('*')
@@ -28,12 +27,11 @@ export const authOptions = {
           .single()
 
         if (error || !user) {
-          // Create new user if doesn't exist
           const { data: newUser, error: createError } = await supabase
             .from('users')
             .insert({
               email: credentials.email,
-              password_hash: credentials.password, // In production, hash this!
+              password_hash: credentials.password,
               tier: 'free',
               created_at: new Date(),
             })
@@ -51,7 +49,6 @@ export const authOptions = {
           }
         }
 
-        // Verify password (in production, use bcrypt!)
         if (user.password_hash !== credentials.password) {
           throw new Error('Invalid credentials')
         }
@@ -65,17 +62,17 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: any; user: any }) {
       if (user) {
         token.id = user.id
         token.tier = user.tier
       }
       return token
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: any; token: any }) {
       if (session.user) {
-        session.user.id = token.id as string
-        session.user.tier = token.tier as string
+        session.user.id = token.id
+        session.user.tier = token.tier
       }
       return session
     },
@@ -85,12 +82,13 @@ export const authOptions = {
     error: '/login',
   },
   session: {
-    strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    strategy: 'jwt' as const,
+    maxAge: 30 * 24 * 60 * 60,
   },
   jwt: {
     secret: process.env.NEXTAUTH_SECRET,
   },
 }
 
-export default NextAuth(authOptions)
+const handler = NextAuth(authOptions)
+export { handler as GET, handler as POST }
