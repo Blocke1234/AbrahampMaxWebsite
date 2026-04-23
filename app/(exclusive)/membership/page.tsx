@@ -40,7 +40,7 @@ const TIERS: Tier[] = [
   },
   {
     name: 'Pro',
-    price: '$19.99/month',
+    price: '$29.99/month',
     features: [
       'All basic features',
       'Unlimited exclusive content',
