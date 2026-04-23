@@ -23,6 +23,8 @@ export default function MembershipPage() {
   const router = useRouter()
   const { data: session } = useSession()
   const [isLoading, setIsLoading] = useState<string | null>(null)
+  const { data: session } = useSession()
+const [isLoading, setIsLoading] = useState<string | null>(null)
 
   const handleSubscribe = async (tierName: string) => {
     if (!session) {
