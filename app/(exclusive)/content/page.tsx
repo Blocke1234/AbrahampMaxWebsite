@@ -1,8 +1,8 @@
-﻿'use client'
+'use client'
 
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { Button } from '../components/ui/Button'
+import { Button } from '../../components/ui/Button'
 import { useState } from 'react'
 
 interface ContentItem {
@@ -74,8 +74,8 @@ export default function ExclusiveContentPage() {
         {['all', 'basic', 'pro'].map(tier => (
           <button
             key={tier}
-            onClick={() => setSelectedTier(tier as any)}
-            className={\px-6 py-2 rounded-lg font-semibold transition \\}
+            onClick={() => setSelectedTier(tier as 'all' | 'basic' | 'pro')}
+            className={`px-6 py-2 rounded-lg font-semibold transition ${selectedTier === tier ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
           >
             {tier === 'all' ? 'All' : tier.toUpperCase()}
           </button>

@@ -1,9 +1,9 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { Button } from '../components/ui/Button'
+import { Button } from '../../components/ui/Button'
 import toast from 'react-hot-toast'
 
 interface Tier {
@@ -17,7 +17,7 @@ interface Tier {
 const TIERS: Tier[] = [
   {
     name: 'Free',
-    price: '\',
+    price: '$0',
     features: [
       'Browse free resources',
       'Limited content access',
@@ -27,7 +27,7 @@ const TIERS: Tier[] = [
   },
   {
     name: 'Basic',
-    price: '\.99/month',
+    price: '$9.99/month',
     features: [
       'All free features',
       'Exclusive content access',
@@ -40,7 +40,7 @@ const TIERS: Tier[] = [
   },
   {
     name: 'Pro',
-    price: '\.99/month',
+    price: '$19.99/month',
     features: [
       'All basic features',
       'Unlimited exclusive content',
@@ -67,7 +67,7 @@ export default function MembershipPage() {
     try {
       // This would call your Stripe API
       await new Promise(resolve => setTimeout(resolve, 1000))
-      toast.success(\Subscribed to \ tier!\)
+      toast.success(`Subscribed to ${tierName} tier!`)
     } catch (error) {
       toast.error('Subscription failed. Please try again.')
     } finally {
@@ -91,7 +91,7 @@ export default function MembershipPage() {
           {TIERS.map((tier, idx) => (
             <div
               key={idx}
-              className={\\ rounded-lg p-8 relative\}
+              className={`bg-gray-900 border ${tier.popular ? 'border-purple-500' : 'border-gray-800'} rounded-lg p-8 relative`}
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-600 px-4 py-1 rounded-full text-sm font-bold">
@@ -113,7 +113,7 @@ export default function MembershipPage() {
                 ))}
               </ul>
 
-              {tierName !== 'Free' ? (
+              {tier.name !== 'Free' ? (
                 <Button
                   onClick={() => handleSubscribe(tier.name)}
                   disabled={isLoading === tier.name}

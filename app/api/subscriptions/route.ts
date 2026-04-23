@@ -1,19 +1,20 @@
-﻿import { supabase } from '@/app/lib/supabase'
+import { supabase } from '@/lib/supabase'
 import { getServerSession } from 'next-auth'
-import { authConfig } from '@/app/lib/auth'
+import { authConfig } from '@/lib/auth'
 
 export async function GET(req: Request) {
   try {
     const session = await getServerSession(authConfig)
+    const userEmail = (session as { user?: { email?: string } } | null)?.user?.email
 
-    if (!session?.user?.email) {
+    if (!userEmail) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const { data: subscription, error } = await supabase
       .from('user_subscriptions')
       .select('*')
-      .eq('user_email', session.user.email)
+      .eq('user_email', userEmail)
       .single()
 
     if (error && error.code !== 'PGRST116') throw error
@@ -31,8 +32,9 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authConfig)
+    const userEmail = (session as { user?: { email?: string } } | null)?.user?.email
 
-    if (!session?.user?.email) {
+    if (!userEmail) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -43,7 +45,7 @@ export async function POST(req: Request) {
       .from('user_subscriptions')
       .upsert([
         {
-          user_email: session.user.email,
+          user_email: userEmail,
           tier,
           stripe_subscription_id,
           status: 'active',
@@ -53,7 +55,7 @@ export async function POST(req: Request) {
 
     if (error) throw error
 
-    return Response.json({ subscription: data[0] })
+    return Response.json({ subscription: (data as unknown[])[0] })
   } catch (error) {
     console.error('Subscription creation error:', error)
     return Response.json(
