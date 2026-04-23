@@ -7,7 +7,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 )
 
-export const authOptions = {
+const authOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
