@@ -1,4 +1,4 @@
-﻿import { stripe } from '@/app/lib/stripe'
+﻿import { stripe } from '@/lib/stripe'
 import { headers } from 'next/headers'
 
 export async function POST(req: Request) {
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
         break
 
       default:
-        console.log(\Unhandled event type: \\)
+        console.log(`Unhandled event type: ${event.type}`)
     }
 
     return new Response('Webhook processed', { status: 200 })

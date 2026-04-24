@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import React from 'react'
 
@@ -15,7 +15,7 @@ export function Button({ variant = 'primary', className = '', children, ...props
     outline: 'border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white',
   }
 
-  const finalClass = \ \ \
+  const finalClass = `${baseStyles} ${variants[variant]} ${className}`
   
   return (
     <button className={finalClass} {...props}>

@@ -1,6 +1,7 @@
-﻿import Image from 'next/image'
+'use client'
+
 import Link from 'next/link'
-import { Button } from '../components/ui/Button'
+import { Button } from '../../components/ui/Button'
 
 export default function AboutPage() {
   return (
@@ -9,7 +10,7 @@ export default function AboutPage() {
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold mb-6">About Me</h1>
         <p className="text-xl text-gray-300 mb-8 max-w-3xl">
-          Welcome to my world. I'm a entrepreneur, content creator, and advocate for personal growth and financial freedom.
+          Welcome to my world. I&apos;m a entrepreneur, content creator, and advocate for personal growth and financial freedom.
         </p>
       </section>
 
@@ -20,7 +21,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                Starting from humble beginnings, I've built multiple successful ventures and helped thousands of people achieve their financial and personal goals.
+                Starting from humble beginnings, I&apos;ve built multiple successful ventures and helped thousands of people achieve their financial and personal goals.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                 My mission is to share knowledge, provide resources, and build a community of like-minded individuals dedicated to growth and success.
@@ -48,7 +49,7 @@ export default function AboutPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Partner Name {i}</h3>
                 <p className="text-gray-300 mb-4">Bio and specialty</p>
-                <Link href={/partner-\} className="text-purple-400 hover:text-purple-300">
+                <Link href={`/partner-${i}`} className="text-purple-400 hover:text-purple-300">
                   View Profile →
                 </Link>
               </div>
