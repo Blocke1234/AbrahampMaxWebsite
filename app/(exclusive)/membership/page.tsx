@@ -59,11 +59,12 @@ export default function MembershipPage() {
   const { data: session } = useSession()
   const [isLoading, setIsLoading] = useState<string | null>(null)
 
-  const handleSubscribe = async (tierName: string) => {
-    if (!session) {
-      router.push(`/signup?tier=${tierName.toLowerCase()}`)
-      return
-    }
+const handleSubscribe = async (tierName: string) => {
+  if (!session) {
+    router.push(`/signup?tier=${tierName.toLowerCase()}`)
+  } else {
+    router.push(`/checkout?tier=${tierName.toLowerCase()}`)
+  }
 
     setIsLoading(tierName)
     try {
