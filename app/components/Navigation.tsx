@@ -48,8 +48,14 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -57,7 +63,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-gray-800 px-6 py-4 space-y-4">
+        <div id="mobile-menu" className="md:hidden border-t border-gray-800 px-6 py-4 space-y-4">
           <Link href="/about" className="block hover:text-purple-400 transition">About</Link>
           <Link href="/products" className="block hover:text-purple-400 transition">Shop</Link>
           <Link href="/free-resources" className="block hover:text-purple-400 transition">Resources</Link>
