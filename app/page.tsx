@@ -46,12 +46,13 @@ export default function Home() {
 
       {/* Credibility Bar — concrete proof above features */}
       <section className="bg-gray-950 border-y border-gray-800 py-10 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
           {[
             { stat: '4 Years', label: 'Active Military' },
             { stat: '2 Licenses', label: 'Life Insurance + Tax' },
             { stat: '10 Years', label: 'Sales Experience' },
-            { stat: '7 + 6', label: 'States Lived · Countries Visited' },
+            { stat: '7 States', label: 'Lived' },
+            { stat: '6 Countries', label: 'Visited' },
           ].map((item, idx) => (
             <div key={idx}>
               <div className="text-2xl md:text-3xl font-bold text-white mb-1">{item.stat}</div>
