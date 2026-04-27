@@ -1,3 +1,8 @@
+// ⚠️ LAUNCH GATE: This page is NOT considered complete until all required items in
+//    `.agents/ecommerce-launch-checklist.md` are checked off.
+//    See sections 8 (Collection Pages), 9 (Product Page), 11 (Anti-Patterns), 12 (Pre-Flight).
+//    Do not run paid ads at this Shop section until Section 12 is GREEN.
+
 'use client'
 
 import { useState } from 'react'
