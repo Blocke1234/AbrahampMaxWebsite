@@ -48,7 +48,7 @@ export default function AboutPage() {
       <section className="bg-gray-900 py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12">My Story</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
                 I grew up like a lot of people who end up in this game — curious, hungry, and
@@ -70,14 +70,20 @@ export default function AboutPage() {
                 You came here to see if I&apos;m real. I am. Pull up a chair.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-purple-500/30 to-pink-600/30 border border-purple-500/40 rounded-lg h-96 flex items-center justify-center text-center px-6">
-              {/* TODO: replace with actual photo at /public/about-headshot.jpg */}
-              <div>
-                <div className="text-6xl mb-4">📷</div>
-                <p className="text-gray-300 font-semibold">Headshot loading…</p>
-                <p className="text-gray-500 text-sm mt-2">
-                  Drop a photo at <code className="text-purple-300">/public/about-headshot.jpg</code> and replace this block
-                </p>
+            <div className="flex flex-col items-center">
+              <div className="bg-gradient-to-br from-purple-500/30 to-pink-600/30 border border-purple-500/40 rounded-lg w-full aspect-square flex items-center justify-center text-center px-6 mb-6">
+                {/* TODO: replace with actual photo at /public/about-headshot.jpg */}
+                <div>
+                  <div className="text-6xl mb-4">📷</div>
+                  <p className="text-gray-300 font-semibold">Headshot loading…</p>
+                  <p className="text-gray-500 text-sm mt-2">
+                    Drop a photo at <code className="text-purple-300">/public/about-headshot.jpg</code>
+                  </p>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl md:text-6xl font-bold text-white">10</div>
+                <p className="text-2xl md:text-3xl font-semibold text-gray-300">Years in Sales</p>
               </div>
             </div>
           </div>
