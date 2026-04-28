@@ -1,9 +1,21 @@
 import type { Metadata } from 'next'
+import { Inter, Playfair_Display } from 'next/font/google'
 import { Providers } from './providers'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import { GoogleAnalytics, MetaPixel, TikTokPixel } from './components/Analytics'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bigwilliestyle.co'
 
@@ -26,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans">
         <Providers>
           <Navigation />
           <main className="min-h-screen">
