@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Providers } from './providers'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
-import { GoogleAnalytics, MetaPixel } from './components/Analytics'
+import { GoogleAnalytics, MetaPixel, TikTokPixel } from './components/Analytics'
 import './globals.css'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bigwilliestyle.co'
@@ -37,6 +37,7 @@ export default function RootLayout({
         </Providers>
         <GoogleAnalytics />
         <MetaPixel />
+        <TikTokPixel />
       </body>
     </html>
   )
