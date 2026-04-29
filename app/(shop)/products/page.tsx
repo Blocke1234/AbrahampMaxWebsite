@@ -90,6 +90,34 @@ const PRODUCTS: Product[] = [
     category: 'Recovery',
     badge: 'Trending',
   },
+  {
+    id: 'forearm-roller',
+    name: 'Forearm Strengthener Wrist Roller — Wooden Handle Grip Trainer',
+    price: 14.99,
+    compareAt: 24.99,
+    description: "Grip strength separates the strong from the average. Wooden handle, steel carabiner clip, hang it anywhere. 3 sets a day and your handshake alone closes deals.",
+    image: '/products/forearm-roller.jpg',
+    category: 'Fitness',
+  },
+  {
+    id: 'body-scrubber',
+    name: 'Exfoliating Body Scrubber Set — Back Scrubber, Glove & Loofah',
+    price: 12.99,
+    compareAt: 24.99,
+    description: "Three tools, one shower. Back scrubber hits where your hands can't reach, exfoliating glove clears dead skin, loofah finishes the job. Clean skin isn't vanity — it's discipline.",
+    image: '/products/body-scrubber.jpg',
+    category: 'Grooming',
+    badge: '990+ Reviews',
+  },
+  {
+    id: 'wedge-pillow',
+    name: 'Orthopedic Wedge Pillow — Anti-Snore & Recovery Sleep',
+    price: 59.99,
+    compareAt: 89.99,
+    description: "Your recovery starts when you sleep. Adjustable incline eliminates acid reflux, reduces snoring, and keeps your spine aligned. 8 hours of repair instead of 8 hours of damage.",
+    image: '/products/wedge-pillow.jpg',
+    category: 'Recovery',
+  },
 ]
 
 export default function ProductsPage() {
