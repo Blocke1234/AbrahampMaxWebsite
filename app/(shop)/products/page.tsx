@@ -6,6 +6,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '../../components/ui/Button'
 import toast from 'react-hot-toast'
@@ -86,7 +87,7 @@ const PRODUCTS: Product[] = [
     price: 64.99,
     compareAt: 109.99,
     description: "Red light therapy for skin rejuvenation, muscle recovery, and pain relief. 225 medical-grade LEDs, 15 minutes a day. Recovery isn't a luxury — it's the edge.",
-    image: '/products/red-light-panel.jpg',
+    image: '/products/red-light-panel.avif',
     category: 'Recovery',
     badge: 'Trending',
   },
@@ -105,7 +106,7 @@ const PRODUCTS: Product[] = [
     price: 12.99,
     compareAt: 24.99,
     description: "Three tools, one shower. Back scrubber hits where your hands can't reach, exfoliating glove clears dead skin, loofah finishes the job. Clean skin isn't vanity — it's discipline.",
-    image: '/products/body-scrubber.jpg',
+    image: '/products/body-scrubber.avif',
     category: 'Grooming',
     badge: '990+ Reviews',
   },
@@ -158,16 +159,22 @@ export default function ProductsPage() {
               key={product.id}
               className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition flex flex-col"
             >
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 h-48 flex items-center justify-center relative">
+              <div className="relative h-48 bg-gray-900">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-contain p-2"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
                 {product.badge && (
-                  <span className="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                  <span className="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded z-10">
                     {product.badge}
                   </span>
                 )}
-                <span className="absolute top-3 right-3 bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">
+                <span className="absolute top-3 right-3 bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded z-10">
                   {product.category}
                 </span>
-                <span className="text-gray-500 text-sm">Image coming soon</span>
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-lg font-bold mb-2 leading-tight">{product.name}</h3>
