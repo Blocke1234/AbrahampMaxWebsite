@@ -9,7 +9,7 @@ export default function Home() {
         <div className="text-center mb-12">
           {/* Credibility eyebrow — earns trust in <3 seconds */}
           <p className="uppercase tracking-widest text-xs md:text-sm text-purple-400 font-semibold mb-6">
-            Veteran · Licensed · 7 States · 6 Countries · 10 Years in Sales
+            Veteran · Licensed · 7 States · 7 Countries · 10 Years in Sales
           </p>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -20,26 +20,25 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            This is the hub for everything I&apos;m building — content, products, and exclusive access.
-            Free to start. Pro for the people who want it all.
+            This is the hub for everything I&apos;m building — content, products, and a community that actually moves forward.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
+            <Link href="/products">
               <Button className="text-lg px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:opacity-90">
-                Start Free
+                Shop Now
               </Button>
             </Link>
-            <Link href="/membership">
+            <a href="https://discord.gg/ThpTfdhVv" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="text-lg px-8 py-4">
-                See Membership
+                Join the Discord
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Risk reversal */}
           <p className="text-sm text-gray-500 mt-6">
-            Free tier · No card required · Cancel anytime
+            Free community · Real products · No fluff
           </p>
         </div>
       </section>
@@ -52,7 +51,7 @@ export default function Home() {
             { stat: '2 Licenses', label: 'Life Insurance + Tax' },
             { stat: '10 Years', label: 'Sales Experience' },
             { stat: '7 States', label: 'Lived' },
-            { stat: '6 Countries', label: 'Visited' },
+            { stat: '7 Countries', label: 'Visited' },
           ].map((item, idx) => (
             <div key={idx}>
               <div className="text-2xl md:text-3xl font-bold text-white mb-1">{item.stat}</div>
@@ -67,33 +66,37 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">What&apos;s Inside</h2>
           <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            One membership. Three sides of the brand.
+            Three sides of the brand. One home base.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: 'Exclusive Content',
+                title: 'Free Resources',
                 description:
-                  'Premium photos, videos, and direct messaging — gated access you won’t get on the open feeds.',
+                  'Best products from around the world — curated by someone who\'s actually been there.',
+                href: '/free-resources',
               },
               {
-                title: 'Curated Products',
+                title: 'The Shop',
                 description:
-                  'Life-enhancing products I actually use — vetted, not affiliate-spammed.',
+                  'Digital guides and physical products I actually use — vetted, not affiliate-spammed.',
+                href: '/products',
               },
               {
-                title: 'The Inner Circle',
+                title: 'The Community',
                 description:
-                  'Direct line to me and the partners I work with. Not a forum full of bots.',
+                  'Free Discord — real conversations, exclusive drops, and direct access. Not a forum full of bots.',
+                href: 'https://discord.gg/ThpTfdhVv',
               },
             ].map((feature, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="bg-black p-8 rounded-lg border border-gray-700 hover:border-purple-500 transition"
+                href={feature.href}
+                className="bg-black p-8 rounded-lg border border-gray-700 hover:border-purple-500 transition block"
               >
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-gray-300">{feature.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -103,11 +106,11 @@ export default function Home() {
       <section className="px-6 py-20 max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">Pull Up a Chair.</h2>
         <p className="text-xl text-gray-300 mb-8">
-          Free to start · Upgrade when you&apos;re ready · Cancel with one click
+          Browse the shop · Read free resources · Join the Discord
         </p>
-        <Link href="/signup">
+        <Link href="/about">
           <Button className="text-lg px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600">
-            Start Free
+            Learn More About Me
           </Button>
         </Link>
       </section>
