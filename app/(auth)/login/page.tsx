@@ -33,7 +33,7 @@ export default function LoginPage() {
 
       if (result?.ok) {
         toast.success('Signed in successfully!')
-        router.push('/membership')
+        router.push('/')
       } else {
         toast.error('Invalid email or password')
       }

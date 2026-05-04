@@ -43,7 +43,7 @@ export default function SignUpPage() {
 
       if (result?.ok) {
         toast.success('Account created successfully!')
-        router.push('/membership')
+        router.push('/')
       } else {
         toast.error('Sign up failed. Please try again.')
       }
