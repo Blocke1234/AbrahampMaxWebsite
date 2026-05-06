@@ -23,7 +23,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bigwilliestyle.co'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Big Willie Style - Premium Content & Products',
-  description: 'Big Willie Style — exclusive content, premium products, and real coaching from Abraham Max.',
+  description: 'Big Willie Style — exclusive content, premium products, and real talk from Big Willie.',
   viewport: 'width=device-width, initial-scale=1',
   alternates: {
     canonical: '/',

@@ -27,11 +27,11 @@ export default function AboutPage() {
       <section className="px-6 pt-20 pb-12 max-w-4xl mx-auto text-center">
         <blockquote className="text-3xl md:text-5xl font-bold leading-tight text-white">
           &ldquo;I didn&apos;t study the game from the sideline.
-          I played it — in seven states, six countries, and every room
+          I played it — in seven states, seven countries, and every room
           they said I didn&apos;t belong in.&rdquo;
         </blockquote>
         <p className="mt-6 text-purple-400 font-semibold tracking-widest uppercase text-sm">
-          — Abraham Max
+          — Big Willie
         </p>
       </section>
 
@@ -56,9 +56,9 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Introduction</p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                I&apos;m Abraham Max — veteran, licensed professional, salesman, traveler, and
+                I&apos;m Big Willie — veteran, licensed professional, salesman, traveler, and
                 creator. Four years in uniform. A decade in sales. Licenses in insurance, taxes,
-                and real estate in progress. I&apos;ve lived in seven U.S. states and visited six
+                and real estate in progress. I&apos;ve lived in seven U.S. states and visited seven
                 countries. This site is everything I do, in one place.
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               { stat: '4', label: 'Years Active Military' },
               { stat: '10', label: 'Years in Sales' },
               { stat: '7', label: 'U.S. States Lived In' },
-              { stat: '6', label: 'Countries Traveled' },
+              { stat: '7', label: 'Countries Traveled' },
               { stat: 'B.A.', label: 'Bachelor’s Educated' },
               { stat: 'Active', label: 'Life Insurance License' },
               { stat: 'Active', label: 'Tax Preparer License' },

@@ -115,13 +115,13 @@ export default function TravelMap() {
                         onMouseLeave={() => setHoveredState(null)}
                         style={{
                           default: {
-                            fill: isLived ? '#7c3aed' : '#1f2937',
-                            stroke: '#374151',
+                            fill: isLived ? '#7c3aed' : '#374151',
+                            stroke: '#4b5563',
                             strokeWidth: 0.5,
                             outline: 'none',
                           },
                           hover: {
-                            fill: isLived ? '#a855f7' : '#374151',
+                            fill: isLived ? '#a855f7' : '#4b5563',
                             stroke: '#6b7280',
                             strokeWidth: 0.5,
                             outline: 'none',
@@ -151,8 +151,8 @@ export default function TravelMap() {
                         key={geo.rsmKey}
                         geography={geo}
                         style={{
-                          default: { fill: '#1f2937', stroke: '#374151', strokeWidth: 0.3, outline: 'none' },
-                          hover:   { fill: '#374151', stroke: '#6b7280', strokeWidth: 0.3, outline: 'none' },
+                          default: { fill: '#374151', stroke: '#4b5563', strokeWidth: 0.3, outline: 'none' },
+                          hover:   { fill: '#4b5563', stroke: '#6b7280', strokeWidth: 0.3, outline: 'none' },
                           pressed: { outline: 'none' },
                         }}
                       />

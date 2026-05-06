@@ -3,14 +3,7 @@
 import Link from 'next/link'
 
 const CAMPAIGNS: { title: string; description: string; goal: string; link: string; icon: string }[] = [
-  // Add real GoFundMe links below — placeholders for now
-  {
-    title: 'Campaign Title Here',
-    description: 'Add a short description of what this campaign is for and how contributions will be used.',
-    goal: '$0 goal',
-    link: 'https://www.gofundme.com',
-    icon: '🎯',
-  },
+  // Real campaigns will be added here
 ]
 
 export default function ContributePage() {

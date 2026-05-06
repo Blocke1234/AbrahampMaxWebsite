@@ -95,7 +95,7 @@ export default function FreeResourcesPage() {
           Best of the World<br className="hidden md:block" /> Around You
         </h1>
         <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
-          I&apos;ve been to six countries and lived in seven states. Every culture has something the rest of the world is sleeping on.
+          I&apos;ve been to seven countries and lived in seven states. Every culture has something the rest of the world is sleeping on.
           These are the products and habits worth stealing — things that actually improve your day-to-day life.
           All free to read. No signup required.
         </p>
