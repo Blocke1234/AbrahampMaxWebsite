@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import Script from 'next/script'
 import { Providers } from './providers'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -52,6 +53,13 @@ export default function RootLayout({
         <GoogleAnalytics />
         <MetaPixel />
         <TikTokPixel />
+        <Script
+          id="metricool-tracker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"5f5089d2f232412404712866eb49d739"})});`,
+          }}
+        />
       </body>
     </html>
   )
