@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useSession, signOut } from 'next-auth/react'
 import { useState } from 'react'
+import { useCart } from '../context/CartContext'
 
 const NAV_LINKS = [
   { label: 'About', href: '/about' },
@@ -14,8 +14,8 @@ const NAV_LINKS = [
 const DISCORD_INVITE = 'https://discord.gg/ThpTfdhVv'
 
 export default function Navigation() {
-  const { data: session } = useSession()
   const [menuOpen, setMenuOpen] = useState(false)
+  const { itemCount } = useCart()
 
   return (
     <>
@@ -65,33 +65,32 @@ export default function Navigation() {
             </a>
           </div>
 
-          {/* Auth — right */}
+          {/* Right — Checkout + Discord */}
           <div className="hidden md:flex items-center gap-3 ml-auto flex-shrink-0">
-            {session ? (
-              <>
-                <span className="text-xs text-gray-500 truncate max-w-[140px]">{session.user?.email}</span>
-                <button
-                  onClick={() => signOut()}
-                  className="px-3 py-1.5 text-sm bg-red-600 hover:bg-red-700 rounded transition"
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="text-sm text-purple-400 hover:text-purple-300 transition">Login</Link>
-                <Link href="/signup" className="text-sm px-4 py-1.5 bg-purple-600 hover:bg-purple-700 rounded transition">Sign Up</Link>
-              </>
-            )}
+            <a
+              href={DISCORD_INVITE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-4 py-1.5 bg-purple-600 hover:bg-purple-700 rounded transition"
+            >
+              Join Us
+            </a>
+            <Link
+              href="/cart"
+              className="text-sm px-4 py-1.5 bg-white text-black hover:bg-gray-200 rounded font-semibold transition flex items-center gap-1.5"
+            >
+              🛒 Checkout{itemCount > 0 && <span className="bg-purple-600 text-white text-xs rounded-full px-1.5 py-0.5">{itemCount}</span>}
+            </Link>
           </div>
 
-          {/* Mobile auth */}
+          {/* Mobile — Checkout */}
           <div className="md:hidden ml-auto flex-shrink-0">
-            {!session && (
-              <Link href="/signup" className="text-sm px-3 py-1.5 bg-purple-600 hover:bg-purple-700 rounded transition">
-                Sign Up
-              </Link>
-            )}
+            <Link
+              href="/cart"
+              className="text-sm px-3 py-1.5 bg-white text-black hover:bg-gray-200 rounded font-semibold transition flex items-center gap-1"
+            >
+              🛒{itemCount > 0 && <span className="bg-purple-600 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">{itemCount}</span>}
+            </Link>
           </div>
         </div>
       </nav>
@@ -144,33 +143,24 @@ export default function Navigation() {
               </a>
             </nav>
 
-            {/* Auth at bottom */}
+            {/* Bottom — Checkout + Discord */}
             <div className="pt-6 border-t border-gray-800 flex flex-col gap-2">
-              {session ? (
-                <button
-                  onClick={() => { signOut(); setMenuOpen(false) }}
-                  className="w-full py-2.5 text-sm bg-red-600 hover:bg-red-700 rounded-lg transition"
-                >
-                  Sign Out
-                </button>
-              ) : (
-                <>
-                  <Link
-                    href="/login"
-                    onClick={() => setMenuOpen(false)}
-                    className="w-full py-2.5 text-sm text-center text-purple-400 hover:text-purple-300 border border-purple-500/30 hover:border-purple-500 rounded-lg transition"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="/signup"
-                    onClick={() => setMenuOpen(false)}
-                    className="w-full py-2.5 text-sm text-center bg-purple-600 hover:bg-purple-700 rounded-lg transition"
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              )}
+              <Link
+                href="/cart"
+                onClick={() => setMenuOpen(false)}
+                className="w-full py-2.5 text-sm text-center bg-white text-black hover:bg-gray-200 rounded-lg font-semibold transition flex items-center justify-center gap-2"
+              >
+                🛒 Checkout {itemCount > 0 && `(${itemCount})`}
+              </Link>
+              <a
+                href={DISCORD_INVITE}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="w-full py-2.5 text-sm text-center bg-purple-600 hover:bg-purple-700 rounded-lg transition"
+              >
+                Join Us on Discord
+              </a>
             </div>
           </div>
         </div>

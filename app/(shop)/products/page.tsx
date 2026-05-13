@@ -330,7 +330,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Physical Products */}
-      <section className="px-6 pb-24 max-w-5xl mx-auto">
+      <section className="px-6 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-6">
           <h2 className="text-2xl font-bold">📦 Physical Products</h2>
           <span className="text-xs text-gray-500 bg-gray-800 border border-gray-700 px-3 py-1 rounded-full">Ships to You</span>
@@ -339,6 +339,23 @@ export default function ProductsPage() {
           {physical.map(product => (
             <ProductRow key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+      {/* Bottom Checkout CTA */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xl font-bold text-white mb-1">Ready to check out?</p>
+            <p className="text-gray-400 text-sm">
+              {itemCount > 0 ? `You have ${itemCount} item${itemCount > 1 ? 's' : ''} in your cart.` : 'Add items above and come back here when you\'re done.'}
+            </p>
+          </div>
+          <Link href="/cart">
+            <button className={`px-8 py-4 rounded-xl font-bold text-lg transition ${itemCount > 0 ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-700 text-gray-400 cursor-default'}`}>
+              {itemCount > 0 ? `🛒 Go to Checkout (${itemCount})` : '🛒 Your cart is empty'}
+            </button>
+          </Link>
         </div>
       </section>
     </div>
