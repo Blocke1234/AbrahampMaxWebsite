@@ -7,8 +7,10 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '../../components/ui/Button'
 import toast from 'react-hot-toast'
+import { useCart } from '../../context/CartContext'
 
 interface Product {
   id: string
@@ -195,10 +197,18 @@ const PRODUCTS: Product[] = [
 
 function ProductRow({ product }: { product: Product }) {
   const [expanded, setExpanded] = useState(false)
-  const [inCart, setInCart] = useState(false)
+  const { addItem, items } = useCart()
+  const inCart = items.some(i => i.id === product.id)
 
   const handleAddToCart = () => {
-    setInCart(true)
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      icon: product.icon,
+      type: product.type,
+    })
     toast.success(`Added to cart`)
   }
 
@@ -277,16 +287,28 @@ function ProductRow({ product }: { product: Product }) {
 export default function ProductsPage() {
   const digital = PRODUCTS.filter(p => p.type === 'digital')
   const physical = PRODUCTS.filter(p => p.type === 'physical')
+  const { itemCount } = useCart()
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <section className="px-6 py-20 max-w-5xl mx-auto">
-        <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-3">Big Willie Style</p>
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">The Shop</h1>
-        <p className="text-xl text-gray-300 max-w-3xl">
-          Every product here passed one test: would I use it myself and recommend it to someone I respect? If the answer was no, it didn&apos;t make the cut.
-        </p>
+        <div className="flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-3">Big Willie Style</p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">The Shop</h1>
+            <p className="text-xl text-gray-300 max-w-3xl">
+              Every product here passed one test: would I use it myself and recommend it to someone I respect? If the answer was no, it didn&apos;t make the cut.
+            </p>
+          </div>
+          {itemCount > 0 && (
+            <Link href="/cart">
+              <button className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-3 rounded-xl font-semibold transition mt-2">
+                🛒 Cart ({itemCount})
+              </button>
+            </Link>
+          )}
+        </div>
       </section>
 
       {/* Digital Products */}
