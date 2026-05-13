@@ -33,28 +33,39 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
     }
 
-    // Handle checkout.session.completed
+    // Handle checkout.session.completed for product purchases
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session
 
-      const customerEmail = session.customer_email || 'test@example.com'
-      const tier = session.metadata?.tier || 'free'
+      const customerEmail = session.customer_email || ''
+      const sessionId = session.id
+      const amountTotal = session.amount_total || 0
 
-      // Update user tier in Supabase
+      if (!customerEmail) {
+        console.warn('No customer email in checkout session')
+        return NextResponse.json({ received: true })
+      }
+
+      // Log the order to Supabase
       const { error } = await supabase
-        .from('users')
-        .update({ tier })
-        .eq('email', customerEmail)
+        .from('orders')
+        .insert({
+          customer_email: customerEmail,
+          stripe_session_id: sessionId,
+          amount_total: amountTotal,
+          status: 'completed',
+          created_at: new Date(),
+        })
 
       if (error) {
-        console.error('Supabase update error:', error)
+        console.error('Supabase order insert error:', error)
         return NextResponse.json(
-          { error: 'Failed to update tier' },
+          { error: 'Failed to log order' },
           { status: 500 }
         )
       }
 
-      console.log(`✅ Updated ${customerEmail} to tier: ${tier}`)
+      console.log(`✅ Order logged for ${customerEmail}: $${(amountTotal / 100).toFixed(2)}`)
     }
 
     return NextResponse.json({ received: true })

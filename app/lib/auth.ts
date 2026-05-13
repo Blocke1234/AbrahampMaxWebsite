@@ -10,7 +10,6 @@ export const authConfig: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        // Placeholder: verify credentials against your database here
         if (!credentials?.email || !credentials?.password) return null
         return null
       },

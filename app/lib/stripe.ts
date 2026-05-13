@@ -5,36 +5,22 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 })
 
 export async function createCheckoutSession(
-  customerId: string,
-  priceId: string,
-  successUrl: string,
-  cancelUrl: string
-) {
-  return await stripe.checkout.sessions.create({
-    customer: customerId,
-    mode: 'subscription',
-    payment_method_types: ['card'],
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
-    success_url: successUrl,
-    cancel_url: cancelUrl,
-  })
-}
-
-export async function createProductCheckoutSession(
   lineItems: Stripe.Checkout.SessionCreateParams.LineItem[],
   successUrl: string,
-  cancelUrl: string
+  cancelUrl: string,
+  customerEmail?: string
 ) {
-  return await stripe.checkout.sessions.create({
+  const params: Stripe.Checkout.SessionCreateParams = {
     mode: 'payment',
     payment_method_types: ['card'],
     line_items: lineItems,
     success_url: successUrl,
     cancel_url: cancelUrl,
-  })
+  }
+
+  if (customerEmail) {
+    params.customer_email = customerEmail
+  }
+
+  return await stripe.checkout.sessions.create(params)
 }

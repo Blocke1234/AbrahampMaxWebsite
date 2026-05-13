@@ -32,7 +32,6 @@ const authOptions = {
             .insert({
               email: credentials.email,
               password_hash: credentials.password,
-              tier: 'free',
               created_at: new Date(),
             })
             .select()
@@ -45,7 +44,6 @@ const authOptions = {
           return {
             id: newUser.id,
             email: newUser.email,
-            tier: newUser.tier,
           }
         }
 
@@ -56,7 +54,6 @@ const authOptions = {
         return {
           id: user.id,
           email: user.email,
-          tier: user.tier,
         }
       },
     }),
@@ -65,14 +62,12 @@ const authOptions = {
     async jwt({ token, user }: { token: any; user: any }) {
       if (user) {
         token.id = user.id
-        token.tier = user.tier
       }
       return token
     },
     async session({ session, token }: { session: any; token: any }) {
       if (session.user) {
         session.user.id = token.id
-        session.user.tier = token.tier
       }
       return session
     },
