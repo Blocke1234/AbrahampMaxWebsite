@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0f0f23;
+  --navy-light: #1a1a2e;
+  --teal: #4ecdc4;
+  --teal-dark: #3db8b0;
+  --amber: #f0a500;
+  --coral: #ff6b6b;
+  --cream: #faf9f6;
+  --charcoal: #2d2d2d;
+  --gray-light: #f5f5f5;
+  --gray-mid: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--charcoal);
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Scrolling trust bar animation */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Pulse animation for CTA */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(78, 205, 196, 0.1); }
+}
+
+.pulse-cta {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Star rating */
+.star-filled {
+  color: var(--amber);
+}
+
+/* Product card hover */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--teal), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section transitions */
+.section-dark {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.section-cream {
+  background: var(--cream);
+}
+
+/* Button styles */
+.btn-primary {
+  background: var(--teal);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--teal);
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 50px;
+  border: 2px solid var(--teal);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-secondary:hover {
+  background: var(--teal);
+  color: var(--navy);
+}
+
+/* FAQ Accordion */
+.faq-item {
+  border-bottom: 1px solid var(--gray-mid);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background: var(--gray-light);
+}
+
+/* Marquee / Trust bar */
+.trust-bar {
+  background: var(--teal);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.trust-bar-content {
+  display: inline-flex;
+  gap: 60px;
+  animation: scroll-left 25s linear infinite;
+}
+
+/* Sale badge */
+.sale-badge {
+  background: var(--coral);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
