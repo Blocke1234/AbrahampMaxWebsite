@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 'use client'
 
 import { useSession } from 'next-auth/react'
@@ -36,3 +38,4 @@ export default function MessagesPage() {
     </div>
   )
 }
+

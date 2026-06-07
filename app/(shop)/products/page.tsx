@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 // ⚠️ LAUNCH GATE: This page is NOT considered complete until all required items in
 //    `.agents/ecommerce-launch-checklist.md` are checked off.
 //    See sections 8 (Collection Pages), 9 (Product Page), 11 (Anti-Patterns), 12 (Pre-Flight).
@@ -361,3 +363,4 @@ export default function ProductsPage() {
     </div>
   )
 }
+
