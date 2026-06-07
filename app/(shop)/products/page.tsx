@@ -1,11 +1,11 @@
-export const dynamic = 'force-dynamic'
-
 // ⚠️ LAUNCH GATE: This page is NOT considered complete until all required items in
 //    `.agents/ecommerce-launch-checklist.md` are checked off.
 //    See sections 8 (Collection Pages), 9 (Product Page), 11 (Anti-Patterns), 12 (Pre-Flight).
 //    Do not run paid ads at this Shop section until Section 12 is GREEN.
 
 'use client'
+
+export const dynamic = 'force-dynamic'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -363,4 +363,5 @@ export default function ProductsPage() {
     </div>
   )
 }
+
 
