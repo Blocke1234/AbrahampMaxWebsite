@@ -7,7 +7,7 @@ import { Button } from '../../components/ui/Button'
 
 const TravelMap = dynamic(() => import('../../components/TravelMap'), { ssr: false })
 
-const CALENDLY_URL = 'https://calendly.com/abrahammax'
+const CALENDLY_URL = 'https://calendly.com/blakewillette'
 
 const schedule = [
   { day: 'Monday', platforms: 'YouTube + TikTok', time: '7:00 PM EST', type: 'Content Drop' },
@@ -31,7 +31,7 @@ export default function AboutPage() {
           they said I didn&apos;t belong in.&rdquo;
         </blockquote>
         <p className="mt-6 text-[#4ecdc4] font-semibold tracking-widest uppercase text-sm">
-          — Abraham Max
+          — Blake Willette
         </p>
       </section>
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Introduction</p>
               <p className="text-lg text-white/70 leading-relaxed">
-                I&apos;m Abraham Max — veteran, licensed professional, salesman, traveler, and
+                I&apos;m Blake Willette — veteran, licensed professional, salesman, traveler, and
                 creator. Four years in uniform. A decade in sales. Licenses in insurance, taxes,
                 and real estate in progress. I&apos;ve lived in seven U.S. states and visited six
                 countries. This site is everything I do, in one place.
@@ -208,4 +208,5 @@ export default function AboutPage() {
     </div>
   )
 }
+
 
