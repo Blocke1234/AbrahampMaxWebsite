@@ -19,7 +19,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="bg-black border-b border-gray-800 sticky top-0 z-50">
+      <nav className="bg-[#0f0f23] border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center gap-6">
 
           {/* Three-dot menu — left */}
@@ -35,7 +35,7 @@ export default function Navigation() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 flex-shrink-0">
+          <Link href="/" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4ecdc4] to-[#f0a500] flex-shrink-0">
             Big Willie Style
           </Link>
 
@@ -71,7 +71,7 @@ export default function Navigation() {
               href={DISCORD_INVITE}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm px-4 py-1.5 bg-purple-600 hover:bg-purple-700 rounded transition"
+              className="text-sm px-4 py-1.5 bg-[#4ecdc4] hover:bg-[#3db8b0] rounded transition"
             >
               Join Us
             </a>
@@ -79,7 +79,7 @@ export default function Navigation() {
               href="/cart"
               className="text-sm px-4 py-1.5 bg-white text-black hover:bg-gray-200 rounded font-semibold transition flex items-center gap-1.5"
             >
-              🛒 Checkout{itemCount > 0 && <span className="bg-purple-600 text-white text-xs rounded-full px-1.5 py-0.5">{itemCount}</span>}
+              🛒 Checkout{itemCount > 0 && <span className="bg-[#4ecdc4] text-white text-xs rounded-full px-1.5 py-0.5">{itemCount}</span>}
             </Link>
           </div>
 
@@ -89,7 +89,7 @@ export default function Navigation() {
               href="/cart"
               className="text-sm px-3 py-1.5 bg-white text-black hover:bg-gray-200 rounded font-semibold transition flex items-center gap-1"
             >
-              🛒{itemCount > 0 && <span className="bg-purple-600 text-white text-xs rounded-full px-1.5 py-0.5 ml-1">{itemCount}</span>}
+              🛒{itemCount > 0 && <span className="bg-[#4ecdc4] text-white text-xs rounded-full px-1.5 py-0.5 ml-1">{itemCount}</span>}
             </Link>
           </div>
         </div>
@@ -99,18 +99,18 @@ export default function Navigation() {
       {menuOpen && (
         <div className="fixed inset-0 z-[90]" onClick={() => setMenuOpen(false)}>
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-[#0f0f23]/60 backdrop-blur-sm" />
 
           {/* Panel */}
           <div
-            className="absolute top-0 left-0 h-full w-72 bg-gray-950 border-r border-gray-800 flex flex-col py-8 px-6 shadow-2xl"
+            className="absolute top-0 left-0 h-full w-72 bg-[#0a0a1a] border-r border-white/10 flex flex-col py-8 px-6 shadow-2xl"
             onClick={e => e.stopPropagation()}
           >
             {/* Logo */}
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-10"
+              className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4ecdc4] to-[#f0a500] mb-10"
             >
               Big Willie Style
             </Link>
@@ -122,7 +122,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition font-medium"
+                  className="px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition font-medium"
                 >
                   {link.label}
                 </Link>
@@ -144,7 +144,7 @@ export default function Navigation() {
             </nav>
 
             {/* Bottom — Checkout + Discord */}
-            <div className="pt-6 border-t border-gray-800 flex flex-col gap-2">
+            <div className="pt-6 border-t border-white/10 flex flex-col gap-2">
               <Link
                 href="/cart"
                 onClick={() => setMenuOpen(false)}
@@ -157,7 +157,7 @@ export default function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="w-full py-2.5 text-sm text-center bg-purple-600 hover:bg-purple-700 rounded-lg transition"
+                className="w-full py-2.5 text-sm text-center bg-[#4ecdc4] hover:bg-[#3db8b0] rounded-lg transition"
               >
                 Join Us on Discord
               </a>
@@ -168,3 +168,4 @@ export default function Navigation() {
     </>
   )
 }
+

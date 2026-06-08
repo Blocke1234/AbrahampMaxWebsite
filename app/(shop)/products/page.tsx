@@ -215,10 +215,10 @@ function ProductRow({ product }: { product: Product }) {
   }
 
   return (
-    <div className="bg-gray-900 border border-gray-800 hover:border-purple-500/60 rounded-xl overflow-hidden transition">
+    <div className="bg-[#1a1a2e] border border-white/10 hover:border-[#4ecdc4]/60 rounded-xl overflow-hidden transition">
       <div className="flex gap-0">
         {/* Image */}
-        <div className="relative w-36 sm:w-48 flex-shrink-0 bg-gray-800 flex items-center justify-center">
+        <div className="relative w-36 sm:w-48 flex-shrink-0 bg-white/10 flex items-center justify-center">
           {product.image ? (
             <Image
               src={product.image}
@@ -230,11 +230,11 @@ function ProductRow({ product }: { product: Product }) {
           ) : (
             <div className="flex flex-col items-center justify-center w-full h-full py-6 px-3 text-center">
               <span className="text-4xl mb-2">{product.icon ?? '📄'}</span>
-              <span className="text-xs text-gray-500 uppercase tracking-wide">PDF</span>
+              <span className="text-xs text-white/40 uppercase tracking-wide">PDF</span>
             </div>
           )}
           {product.badge && (
-            <span className="absolute top-2 left-2 bg-purple-600 text-white text-xs font-bold px-2 py-0.5 rounded z-10">
+            <span className="absolute top-2 left-2 bg-[#4ecdc4] text-white text-xs font-bold px-2 py-0.5 rounded z-10">
               {product.badge}
             </span>
           )}
@@ -246,23 +246,23 @@ function ProductRow({ product }: { product: Product }) {
             <div className="flex items-start justify-between gap-3 mb-1">
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="text-left text-base sm:text-lg font-bold text-white hover:text-purple-400 transition leading-snug"
+                className="text-left text-base sm:text-lg font-bold text-white hover:text-[#4ecdc4] transition leading-snug"
               >
                 {product.icon && <span className="mr-2">{product.icon}</span>}
                 {product.name}
-                <span className="ml-2 text-purple-400 text-sm font-normal">
+                <span className="ml-2 text-[#4ecdc4] text-sm font-normal">
                   {expanded ? '▲ less' : '▼ more'}
                 </span>
               </button>
-              <span className="text-xs text-gray-500 bg-gray-800 px-2 py-0.5 rounded flex-shrink-0">
+              <span className="text-xs text-white/40 bg-white/10 px-2 py-0.5 rounded flex-shrink-0">
                 {product.category}
               </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">{product.description}</p>
+            <p className="text-white/50 text-sm leading-relaxed">{product.description}</p>
 
             {/* Accordion */}
             {expanded && (
-              <p className="text-gray-300 text-sm leading-relaxed mt-3 pt-3 border-t border-gray-700">
+              <p className="text-white/70 text-sm leading-relaxed mt-3 pt-3 border-t border-white/20">
                 {product.details}
               </p>
             )}
@@ -271,7 +271,7 @@ function ProductRow({ product }: { product: Product }) {
           <div className="flex items-center justify-between mt-4 gap-3 flex-wrap">
             <div>
               <span className="text-gray-600 line-through text-sm block">${product.compareAt.toFixed(2)}</span>
-              <span className="text-xl font-bold text-purple-400">${product.price.toFixed(2)}</span>
+              <span className="text-xl font-bold text-[#4ecdc4]">${product.price.toFixed(2)}</span>
             </div>
             <Button
               onClick={handleAddToCart}
@@ -292,20 +292,20 @@ export default function ProductsPage() {
   const { itemCount } = useCart()
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0f0f23] text-white">
       {/* Header */}
       <section className="px-6 py-20 max-w-5xl mx-auto">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-3">Big Willie Style</p>
+            <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-3">Big Willie Style</p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">The Shop</h1>
-            <p className="text-xl text-gray-300 max-w-3xl">
+            <p className="text-xl text-white/70 max-w-3xl">
               Every product here passed one test: would I use it myself and recommend it to someone I respect? If the answer was no, it didn&apos;t make the cut.
             </p>
           </div>
           {itemCount > 0 && (
             <Link href="/cart">
-              <button className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-5 py-3 rounded-xl font-semibold transition mt-2">
+              <button className="flex items-center gap-2 bg-[#4ecdc4] hover:bg-[#3db8b0] text-white px-5 py-3 rounded-xl font-semibold transition mt-2">
                 🛒 Cart ({itemCount})
               </button>
             </Link>
@@ -317,7 +317,7 @@ export default function ProductsPage() {
       <section className="px-6 pb-16 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-6">
           <h2 className="text-2xl font-bold">🖥️ Digital Products</h2>
-          <span className="text-xs text-gray-500 bg-gray-800 border border-gray-700 px-3 py-1 rounded-full">Instant Access</span>
+          <span className="text-xs text-white/40 bg-white/10 border border-white/20 px-3 py-1 rounded-full">Instant Access</span>
         </div>
         <div className="space-y-4">
           {digital.map(product => (
@@ -328,14 +328,14 @@ export default function ProductsPage() {
 
       {/* Divider */}
       <div className="max-w-5xl mx-auto px-6 mb-16">
-        <div className="border-t border-gray-800" />
+        <div className="border-t border-white/10" />
       </div>
 
       {/* Physical Products */}
       <section className="px-6 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-6">
           <h2 className="text-2xl font-bold">📦 Physical Products</h2>
-          <span className="text-xs text-gray-500 bg-gray-800 border border-gray-700 px-3 py-1 rounded-full">Ships to You</span>
+          <span className="text-xs text-white/40 bg-white/10 border border-white/20 px-3 py-1 rounded-full">Ships to You</span>
         </div>
         <div className="space-y-4">
           {physical.map(product => (
@@ -346,15 +346,15 @@ export default function ProductsPage() {
 
       {/* Bottom Checkout CTA */}
       <section className="px-6 py-16 max-w-5xl mx-auto">
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="bg-[#1a1a2e] border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-xl font-bold text-white mb-1">Ready to check out?</p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-white/50 text-sm">
               {itemCount > 0 ? `You have ${itemCount} item${itemCount > 1 ? 's' : ''} in your cart.` : 'Add items above and come back here when you\'re done.'}
             </p>
           </div>
           <Link href="/cart">
-            <button className={`px-8 py-4 rounded-xl font-bold text-lg transition ${itemCount > 0 ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-700 text-gray-400 cursor-default'}`}>
+            <button className={`px-8 py-4 rounded-xl font-bold text-lg transition ${itemCount > 0 ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-700 text-white/50 cursor-default'}`}>
               {itemCount > 0 ? `🛒 Go to Checkout (${itemCount})` : '🛒 Your cart is empty'}
             </button>
           </Link>
@@ -363,5 +363,6 @@ export default function ProductsPage() {
     </div>
   )
 }
+
 
 

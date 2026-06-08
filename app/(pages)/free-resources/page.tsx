@@ -86,15 +86,15 @@ export default function FreeResourcesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0f0f23] text-white">
 
       {/* Header */}
       <section className="px-6 py-20 max-w-6xl mx-auto">
-        <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-4">Free Resources</p>
+        <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-4">Free Resources</p>
         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Best of the World<br className="hidden md:block" /> Around You
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
+        <p className="text-xl text-white/50 max-w-3xl leading-relaxed">
           I&apos;ve been to six countries and lived in seven states. Every culture has something the rest of the world is sleeping on.
           These are the products and habits worth stealing — things that actually improve your day-to-day life.
           All free to read. No signup required.
@@ -104,14 +104,14 @@ export default function FreeResourcesPage() {
       {/* Country Cards */}
       <section className="px-6 pb-20 max-w-6xl mx-auto space-y-12">
         {COUNTRIES.map((entry, i) => (
-          <div key={i} className="bg-gray-900 border border-gray-800 hover:border-purple-500/50 rounded-2xl overflow-hidden transition">
+          <div key={i} className="bg-[#1a1a2e] border border-white/10 hover:border-[#4ecdc4]/50 rounded-2xl overflow-hidden transition">
 
             {/* Country Header */}
-            <div className="flex items-center gap-4 px-8 py-6 border-b border-gray-800 bg-gray-950">
+            <div className="flex items-center gap-4 px-8 py-6 border-b border-white/10 bg-[#0a0a1a]">
               <span className="text-4xl">{entry.flag}</span>
               <div>
                 <h2 className="text-2xl font-bold text-white">{entry.country}</h2>
-                <p className="text-gray-500 text-sm">{entry.tagline}</p>
+                <p className="text-white/40 text-sm">{entry.tagline}</p>
               </div>
             </div>
 
@@ -120,13 +120,13 @@ export default function FreeResourcesPage() {
               {entry.products.map((product, j) => (
                 <div key={j} className="px-8 py-5 flex flex-col sm:flex-row sm:items-start gap-3">
                   <div className="flex-shrink-0 mt-0.5">
-                    <span className="inline-block w-6 h-6 rounded-full bg-purple-600/20 border border-purple-500/40 text-purple-400 text-xs font-bold flex items-center justify-center">
+                    <span className="inline-block w-6 h-6 rounded-full bg-[#4ecdc4]/20 border border-[#4ecdc4]/40 text-[#4ecdc4] text-xs font-bold flex items-center justify-center">
                       {j + 1}
                     </span>
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1">{product.name}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{product.use}</p>
+                    <p className="text-white/50 text-sm leading-relaxed">{product.use}</p>
                   </div>
                 </div>
               ))}
@@ -137,9 +137,9 @@ export default function FreeResourcesPage() {
 
       {/* Email capture */}
       <section className="px-6 pb-24 max-w-4xl mx-auto">
-        <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/20 border border-purple-500/30 rounded-2xl py-16 px-8 text-center">
+        <div className="bg-gradient-to-br from-purple-900/40 to-pink-900/20 border border-[#4ecdc4]/30 rounded-2xl py-16 px-8 text-center">
           <h2 className="text-3xl font-bold mb-3">Want More Like This?</h2>
-          <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+          <p className="text-white/50 mb-8 max-w-xl mx-auto">
             Drop your email and I&apos;ll send new country breakdowns, product finds, and resources directly to your inbox.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -149,7 +149,7 @@ export default function FreeResourcesPage() {
               onChange={e => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
-              className="flex-1 px-5 py-3 rounded-xl bg-black text-white border border-gray-700 focus:border-purple-500 outline-none transition text-sm"
+              className="flex-1 px-5 py-3 rounded-xl bg-[#0f0f23] text-white border border-white/20 focus:border-[#4ecdc4] outline-none transition text-sm"
             />
             <Button type="submit" disabled={isSubscribing} className="px-6 py-3 whitespace-nowrap">
               {isSubscribing ? 'Sending…' : 'Send It →'}
@@ -160,3 +160,4 @@ export default function FreeResourcesPage() {
     </div>
   )
 }
+

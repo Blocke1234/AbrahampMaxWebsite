@@ -10,11 +10,11 @@ function SuccessContent() {
   const sessionId = params.get('session_id')
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+    <div className="min-h-screen bg-[#0f0f23] text-white flex items-center justify-center px-6">
       <div className="max-w-lg w-full text-center">
         <div className="text-7xl mb-6">✅</div>
         <h1 className="text-4xl font-bold mb-4">Order Confirmed!</h1>
-        <p className="text-gray-300 text-lg mb-2">
+        <p className="text-white/70 text-lg mb-2">
           Your payment was successful. Check your email for your receipt.
         </p>
         {sessionId && (
@@ -22,7 +22,7 @@ function SuccessContent() {
             Ref: {sessionId.slice(-12)}
           </p>
         )}
-        <p className="text-gray-400 mb-8">
+        <p className="text-white/50 mb-8">
           Physical products typically ship within 5–10 business days.
           Digital products will be emailed to you shortly.
         </p>
@@ -36,8 +36,9 @@ function SuccessContent() {
 
 export default function SuccessPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-black" />}>
+    <Suspense fallback={<div className="min-h-screen bg-[#0f0f23]" />}>
       <SuccessContent />
     </Suspense>
   )
 }
+

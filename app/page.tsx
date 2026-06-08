@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 // ============================================================
 // PRODUCT DATA - Update Stripe Price IDs when ready
@@ -154,44 +155,93 @@ async function handleCheckout(stripePriceId: string, quantity: number = 1) {
 // COMPONENTS
 // ============================================================
 
+const DISCORD_URL = 'https://discord.gg/ThpTfdhVv'
+
+function DiscordPopup() {
+  const [visible, setVisible] = useState(false)
+  const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (sessionStorage.getItem('discord_popup_seen')) return
+    const t = setTimeout(() => setVisible(true), 8000)
+    return () => clearTimeout(t)
+  }, [])
+
+  const dismiss = () => {
+    sessionStorage.setItem('discord_popup_seen', '1')
+    setVisible(false)
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+    sessionStorage.setItem('discord_popup_seen', '1')
+  }
+
+  if (!visible) return null
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4" style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)' }}>
+      <div className="relative bg-[#0f0f23] border border-[#4ecdc4]/40 rounded-2xl shadow-2xl w-full max-w-sm p-8 text-center">
+        <button onClick={dismiss} className="absolute top-4 right-4 text-white/40 hover:text-white text-xl">✕</button>
+        <div className="text-4xl mb-4">💬</div>
+        {!submitted ? (
+          <>
+            <h2 className="text-xl font-black text-white mb-2">Join the Community</h2>
+            <p className="text-white/60 text-sm mb-6">Drop your email and get straight to the Discord — where the real conversations happen.</p>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
+                className="w-full bg-white/10 border border-white/20 focus:border-[#4ecdc4] rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none text-sm" />
+              <button type="submit" className="w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold py-3 rounded-lg text-sm transition">Join the Discord →</button>
+            </form>
+            <button onClick={dismiss} className="mt-4 text-white/30 hover:text-white/60 text-xs transition">No thanks</button>
+          </>
+        ) : (
+          <>
+            <h2 className="text-xl font-black text-white mb-3">You&apos;re in! 🎉</h2>
+            <p className="text-white/60 text-sm mb-6">Click below to open Discord.</p>
+            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" onClick={dismiss}
+              className="inline-block w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold py-3 rounded-lg text-sm transition">
+              Open Discord →
+            </a>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f0f23]/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="text-2xl font-black text-white tracking-tight">
-          Big Willy Style
-        </a>
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Products</a>
-          <a href="#reviews" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Reviews</a>
-          <a href="#faq" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">FAQ</a>
-          <button
-            onClick={() => handleCheckout(HERO_PRODUCT.stripePriceId)}
-            className="btn-primary text-sm py-3 px-6"
-          >
-            Shop Now
-          </button>
+        <a href="/" className="text-2xl font-black text-white tracking-tight">Big Willy Style</a>
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="/about" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">About</Link>
+          <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Shop</a>
+          <Link href="/free-resources" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Free Resources</Link>
+          <Link href="/contribute" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Contribute</Link>
+          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-sm bg-[#5865F2]/20 hover:bg-[#5865F2]/40 border border-[#5865F2]/40 text-[#7289da] hover:text-white px-3 py-1.5 rounded-full transition">
+            Discord
+          </a>
+          <Link href="/cart" className="text-sm px-4 py-2 bg-white text-[#0f0f23] hover:bg-gray-200 rounded-full font-bold transition">🛒 Cart</Link>
         </div>
-        <button
-          className="md:hidden text-white text-2xl"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
+        <button className="md:hidden text-white text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? '✕' : '☰'}
         </button>
       </div>
       {mobileOpen && (
         <div className="md:hidden bg-[#0f0f23] border-t border-white/10 px-6 py-6 flex flex-col gap-4">
-          <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-lg">Products</a>
-          <a href="#reviews" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-lg">Reviews</a>
-          <a href="#faq" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-lg">FAQ</a>
-          <button
-            onClick={() => handleCheckout(HERO_PRODUCT.stripePriceId)}
-            className="btn-primary text-sm py-3 px-6 w-full mt-2"
-          >
-            Shop Now
-          </button>
+          <Link href="/about" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">About</Link>
+          <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Shop</a>
+          <Link href="/free-resources" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Free Resources</Link>
+          <Link href="/contribute" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Contribute</Link>
+          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="text-[#7289da] font-medium">Discord</a>
+          <Link href="/cart" className="btn-primary text-sm py-3 px-6 w-full mt-2 text-center">🛒 Cart</Link>
         </div>
       )}
     </nav>
@@ -562,6 +612,7 @@ function Footer() {
 export default function Home() {
   return (
     <main>
+      <DiscordPopup />
       <Navbar />
       <TrustBar />
       <HeroSection />

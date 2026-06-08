@@ -21,7 +21,7 @@ const schedule = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0f0f23] text-white">
 
       {/* Opening Quote */}
       <section className="px-6 pt-20 pb-12 max-w-4xl mx-auto text-center">
@@ -30,7 +30,7 @@ export default function AboutPage() {
           I played it — in seven states, six countries, and every room
           they said I didn&apos;t belong in.&rdquo;
         </blockquote>
-        <p className="mt-6 text-purple-400 font-semibold tracking-widest uppercase text-sm">
+        <p className="mt-6 text-[#4ecdc4] font-semibold tracking-widest uppercase text-sm">
           — Abraham Max
         </p>
       </section>
@@ -41,7 +41,7 @@ export default function AboutPage() {
 
           {/* Headshot */}
           <div className="flex justify-center">
-            <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-purple-500/50 shadow-2xl shadow-purple-900/30">
+            <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-[#4ecdc4]/50 shadow-2xl shadow-purple-900/30">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/about-headshot.jpg"
@@ -54,8 +54,8 @@ export default function AboutPage() {
           {/* Intro · Objective · Intent */}
           <div className="space-y-8">
             <div>
-              <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Introduction</p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Introduction</p>
+              <p className="text-lg text-white/70 leading-relaxed">
                 I&apos;m Abraham Max — veteran, licensed professional, salesman, traveler, and
                 creator. Four years in uniform. A decade in sales. Licenses in insurance, taxes,
                 and real estate in progress. I&apos;ve lived in seven U.S. states and visited six
@@ -64,8 +64,8 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Objective</p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Objective</p>
+              <p className="text-lg text-white/70 leading-relaxed">
                 To build the most honest, high-value personal brand on the internet — content
                 that actually teaches, products that actually work, and a community that actually
                 gets access to the real me. No gatekeeper but the paywall, and the paywall is
@@ -74,8 +74,8 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Intent</p>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Intent</p>
+              <p className="text-lg text-white/70 leading-relaxed">
                 Every post, every product, every piece of content is built to move people
                 forward — toward better decisions, better options, and better outcomes. I don&apos;t
                 do fluff. If I&apos;m putting it out, it&apos;s because it&apos;s worth your time.
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* Credibility Stack */}
-      <section className="bg-gray-950 border-y border-gray-800 py-12 px-6">
+      <section className="bg-[#0a0a1a] border-y border-white/10 py-12 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Receipts</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
@@ -100,9 +100,9 @@ export default function AboutPage() {
               { stat: 'Active', label: 'Tax Preparer License' },
               { stat: 'In Training', label: 'Real Estate License' },
             ].map((item, idx) => (
-              <div key={idx} className="border border-gray-800 rounded-lg p-4 hover:border-purple-500 transition">
+              <div key={idx} className="border border-white/10 rounded-lg p-4 hover:border-[#4ecdc4] transition">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-2">{item.stat}</div>
-                <div className="text-xs md:text-sm text-gray-400 uppercase tracking-wide">{item.label}</div>
+                <div className="text-xs md:text-sm text-white/50 uppercase tracking-wide">{item.label}</div>
               </div>
             ))}
           </div>
@@ -112,9 +112,9 @@ export default function AboutPage() {
       {/* Interactive Travel Map */}
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Where I&apos;ve Been</p>
+          <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Where I&apos;ve Been</p>
           <h2 className="text-3xl md:text-4xl font-bold">7 States. 7 Countries.</h2>
-          <p className="text-gray-500 mt-2 max-w-xl">Toggle between the map of every state I&apos;ve lived in and every country I&apos;ve set foot in. Hover to explore.</p>
+          <p className="text-white/40 mt-2 max-w-xl">Toggle between the map of every state I&apos;ve lived in and every country I&apos;ve set foot in. Hover to explore.</p>
         </div>
         <TravelMap />
       </section>
@@ -123,14 +123,14 @@ export default function AboutPage() {
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div>
-            <p className="text-xs uppercase tracking-widest text-purple-400 font-semibold mb-2">Where I Show Up</p>
+            <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Where I Show Up</p>
             <h2 className="text-3xl md:text-4xl font-bold">Weekly Schedule</h2>
           </div>
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm border border-purple-500/40 hover:border-purple-400 px-4 py-2 rounded-lg transition whitespace-nowrap"
+            className="inline-flex items-center gap-2 text-[#4ecdc4] hover:text-[#4ecdc4] font-semibold text-sm border border-[#4ecdc4]/40 hover:border-purple-400 px-4 py-2 rounded-lg transition whitespace-nowrap"
           >
             Book Time With Me →
           </a>
@@ -140,26 +140,26 @@ export default function AboutPage() {
           {schedule.map((item, i) => (
             <div
               key={i}
-              className="bg-gray-900 border border-gray-800 hover:border-purple-500/60 rounded-xl p-5 transition"
+              className="bg-[#1a1a2e] border border-white/10 hover:border-[#4ecdc4]/60 rounded-xl p-5 transition"
             >
-              <p className="text-purple-400 font-bold text-sm uppercase tracking-wide mb-1">{item.day}</p>
+              <p className="text-[#4ecdc4] font-bold text-sm uppercase tracking-wide mb-1">{item.day}</p>
               <p className="text-white font-semibold mb-1">{item.type}</p>
-              <p className="text-gray-400 text-sm mb-2">{item.platforms}</p>
-              <p className="text-gray-500 text-xs">{item.time}</p>
+              <p className="text-white/50 text-sm mb-2">{item.platforms}</p>
+              <p className="text-white/40 text-xs">{item.time}</p>
             </div>
           ))}
         </div>
 
-        <p className="text-gray-600 text-xs mt-6 text-center">
+        <p className="text-white/30 text-xs mt-6 text-center">
           Schedule subject to change. Follow on socials for real-time updates.
         </p>
       </section>
 
       {/* What I Do Section */}
-      <section className="bg-gray-950 border-t border-gray-800 px-6 py-20">
+      <section className="bg-[#0a0a1a] border-t border-white/10 px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4">What I Actually Do Here</h2>
-          <p className="text-gray-400 mb-12 max-w-2xl">Three sides of the brand, one home base.</p>
+          <p className="text-white/50 mb-12 max-w-2xl">Three sides of the brand, one home base.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -183,11 +183,11 @@ export default function AboutPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-gray-900 rounded-lg border border-gray-800 hover:border-purple-500 transition p-8 flex flex-col"
+                className="bg-[#1a1a2e] rounded-lg border border-white/10 hover:border-[#4ecdc4] transition p-8 flex flex-col"
               >
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-300 mb-6 flex-grow">{item.body}</p>
-                <Link href={item.href} className="text-purple-400 hover:text-purple-300 font-semibold">
+                <p className="text-white/70 mb-6 flex-grow">{item.body}</p>
+                <Link href={item.href} className="text-[#4ecdc4] hover:text-[#4ecdc4] font-semibold">
                   {item.cta} →
                 </Link>
               </div>
@@ -197,9 +197,9 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gray-900 py-20 px-6 text-center">
+      <section className="bg-[#1a1a2e] py-20 px-6 text-center">
         <h2 className="text-4xl font-bold mb-6">Now You Know.</h2>
-        <p className="text-xl text-gray-300 mb-8">Free tier · No card required · Cancel anytime</p>
+        <p className="text-xl text-white/70 mb-8">Free tier · No card required · Cancel anytime</p>
         <Link href="/signup">
           <Button className="text-lg px-8 py-4">Start Free</Button>
         </Link>
@@ -208,3 +208,4 @@ export default function AboutPage() {
     </div>
   )
 }
+

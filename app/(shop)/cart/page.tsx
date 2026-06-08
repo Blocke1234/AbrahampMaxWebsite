@@ -53,11 +53,11 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-[#0f0f23] text-white">
         <section className="px-6 py-20 max-w-3xl mx-auto text-center">
           <div className="text-6xl mb-6">🛒</div>
           <h1 className="text-4xl font-bold mb-4">Your cart is empty</h1>
-          <p className="text-gray-400 mb-8">Add something from the shop to get started.</p>
+          <p className="text-white/50 mb-8">Add something from the shop to get started.</p>
           <Link href="/products">
             <Button>Browse Products</Button>
           </Link>
@@ -67,11 +67,11 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0f0f23] text-white">
       <section className="px-6 py-16 max-w-3xl mx-auto">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-4xl font-bold">Your Cart</h1>
-          <Link href="/products" className="text-sm text-purple-400 hover:text-purple-300 transition">
+          <Link href="/products" className="text-sm text-[#4ecdc4] hover:text-purple-300 transition">
             ← Keep Shopping
           </Link>
         </div>
@@ -79,9 +79,9 @@ export default function CartPage() {
         {/* Cart Items */}
         <div className="space-y-4 mb-10">
           {items.map(item => (
-            <div key={item.id} className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex gap-4 items-center">
+            <div key={item.id} className="bg-[#1a1a2e] border border-white/10 rounded-xl p-5 flex gap-4 items-center">
               {/* Thumbnail */}
-              <div className="w-16 h-16 flex-shrink-0 bg-gray-800 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-16 h-16 flex-shrink-0 bg-white/10 rounded-lg flex items-center justify-center overflow-hidden">
                 {item.image ? (
                   <Image src={item.image} alt={item.name} width={64} height={64} className="object-contain" />
                 ) : (
@@ -92,7 +92,7 @@ export default function CartPage() {
               {/* Info */}
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-white truncate">{item.name}</p>
-                <p className="text-sm text-gray-400">${item.price.toFixed(2)} each</p>
+                <p className="text-sm text-white/50">${item.price.toFixed(2)} each</p>
               </div>
 
               {/* Quantity */}
@@ -113,7 +113,7 @@ export default function CartPage() {
               </div>
 
               {/* Line total */}
-              <p className="text-purple-400 font-bold w-20 text-right flex-shrink-0">
+              <p className="text-[#4ecdc4] font-bold w-20 text-right flex-shrink-0">
                 ${(item.price * item.quantity).toFixed(2)}
               </p>
 
@@ -130,14 +130,14 @@ export default function CartPage() {
         </div>
 
         {/* Summary + Checkout */}
-        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+        <div className="bg-[#1a1a2e] border border-white/10 rounded-xl p-6">
           <div className="flex justify-between items-center mb-6">
-            <span className="text-gray-400 text-lg">Order Total</span>
+            <span className="text-white/50 text-lg">Order Total</span>
             <span className="text-3xl font-bold text-white">${total.toFixed(2)}</span>
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm text-gray-400 mb-2">
+            <label className="block text-sm text-white/50 mb-2">
               Email address — your receipt will be sent here
             </label>
             <input
@@ -145,7 +145,7 @@ export default function CartPage() {
               value={email}
               onChange={e => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full bg-gray-800 border border-gray-700 focus:border-purple-500 rounded-lg px-4 py-3 text-white placeholder-gray-500 outline-none transition"
+              className="w-full bg-white/10 border border-white/20 focus:border-[#4ecdc4] rounded-lg px-4 py-3 text-white placeholder-gray-500 outline-none transition"
             />
           </div>
 
@@ -165,5 +165,6 @@ export default function CartPage() {
     </div>
   )
 }
+
 
 
