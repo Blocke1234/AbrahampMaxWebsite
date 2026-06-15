@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-const DISCORD_INVITE = process.env.NEXT_PUBLIC_DISCORD_INVITE ?? 'https://discord.gg/placeholder'
+const DISCORD_INVITE = process.env.NEXT_PUBLIC_DISCORD_INVITE ?? 'https://discord.gg/ZaqzPTW6xu'
 
 export default function DiscordPage() {
   const [email, setEmail] = useState('')
@@ -17,19 +17,19 @@ export default function DiscordPage() {
     setLoading(true)
     setError('')
 
+    // Best-effort email capture — never block Discord access if the save fails.
     try {
-      const res = await fetch('/api/discord-signup', {
+      await fetch('/api/discord-signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
-      if (!res.ok) throw new Error()
-      setSubmitted(true)
     } catch {
-      setError('Something went wrong. Try again.')
-    } finally {
-      setLoading(false)
+      // Ignore — the community link still works below.
     }
+
+    setSubmitted(true)
+    setLoading(false)
   }
 
   return (

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-const DISCORD_INVITE = process.env.NEXT_PUBLIC_DISCORD_INVITE ?? 'https://discord.gg/placeholder'
+const DISCORD_INVITE = process.env.NEXT_PUBLIC_DISCORD_INVITE ?? 'https://discord.gg/ZaqzPTW6xu'
 const POPUP_DELAY_MS = 15_000
 
 export default function DiscordPopup() {
@@ -32,20 +32,20 @@ export default function DiscordPopup() {
     setLoading(true)
     setError('')
 
+    // Best-effort email capture — never block Discord access if the save fails.
     try {
-      const res = await fetch('/api/discord-signup', {
+      await fetch('/api/discord-signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
-      if (!res.ok) throw new Error('Failed to save email')
-      setSubmitted(true)
-      sessionStorage.setItem('discord_popup_seen', '1')
     } catch {
-      setError('Something went wrong. Try again.')
-    } finally {
-      setLoading(false)
+      // Ignore — the community link still works below.
     }
+
+    setSubmitted(true)
+    sessionStorage.setItem('discord_popup_seen', '1')
+    setLoading(false)
   }
 
   if (!visible) return null
