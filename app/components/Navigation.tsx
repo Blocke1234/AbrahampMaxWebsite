@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Contribute', href: '/contribute' },
 ]
 
-const DISCORD_INVITE = 'https://discord.gg/ThpTfdhVv'
+const DISCORD_INVITE = 'https://discord.gg/5PXhKeg9m'
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false)
