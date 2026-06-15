@@ -32,16 +32,15 @@ export default function DiscordPopup() {
     setLoading(true)
     setError('')
 
-    // Best-effort email capture — never block Discord access if the save fails.
-    try {
-      await fetch('/api/discord-signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
-    } catch {
-      // Ignore — the community link still works below.
-    }
+    // Capture the email to our own list (fire-and-forget — never block entry).
+    fetch('/api/discord-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    }).catch(() => {})
+
+    // Open Discord immediately, inside the click gesture so it isn't blocked.
+    window.open(DISCORD_INVITE, '_blank', 'noopener,noreferrer')
 
     setSubmitted(true)
     sessionStorage.setItem('discord_popup_seen', '1')

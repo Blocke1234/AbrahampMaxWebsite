@@ -175,8 +175,18 @@ function DiscordPopup() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
     sessionStorage.setItem('discord_popup_seen', '1')
+
+    // Capture the email to our own list (fire-and-forget — never block entry).
+    fetch('/api/discord-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    }).catch(() => {})
+
+    // Open Discord immediately, inside the click gesture so it isn't blocked.
+    window.open(DISCORD_URL, '_blank', 'noopener,noreferrer')
+    setSubmitted(true)
   }
 
   if (!visible) return null
@@ -200,7 +210,7 @@ function DiscordPopup() {
         ) : (
           <>
             <h2 className="text-xl font-black text-white mb-3">You&apos;re in! 🎉</h2>
-            <p className="text-white/60 text-sm mb-6">Click below to open Discord.</p>
+            <p className="text-white/60 text-sm mb-6">Discord is opening in a new tab. If it didn&apos;t, click below.</p>
             <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" onClick={dismiss}
               className="inline-block w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold py-3 rounded-lg text-sm transition">
               Open Discord →
