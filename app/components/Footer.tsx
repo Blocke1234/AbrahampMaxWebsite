@@ -23,7 +23,7 @@ const FOOTER_LINKS = [
       { label: 'Shop', href: '/products' },
       { label: 'Free Resources', href: '/free-resources' },
       { label: 'Contribute', href: '/contribute' },
-      { label: 'Discord', href: 'https://discord.gg/ThpTfdhVv', external: true },
+      { label: 'Discord', href: 'https://discord.gg/ZaqzPTW6xu', external: true },
     ],
   },
   {
@@ -95,7 +95,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="https://discord.gg/ThpTfdhVv"
+              href="https://discord.gg/ZaqzPTW6xu"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-[#7289da] transition"

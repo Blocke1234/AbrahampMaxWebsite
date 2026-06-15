@@ -69,7 +69,7 @@ export default function ContributePage() {
             </Link>
             {' '}or{' '}
             <a
-              href="https://discord.gg/ThpTfdhVv"
+              href="https://discord.gg/ZaqzPTW6xu"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#7289da] hover:text-white transition"

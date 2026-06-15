@@ -30,7 +30,7 @@ export default function MessagesPage() {
         <p className="text-xl text-gray-300 mb-8">Direct messaging with partners</p>
         <div className="bg-gray-900 rounded-lg p-8 border border-gray-800 text-center">
           <p className="text-gray-300 text-lg">No messages yet. Join the Discord to connect directly.</p>
-          <a href="https://discord.gg/ThpTfdhVv" target="_blank" rel="noopener noreferrer" className="mt-6 inline-block">
+          <a href="https://discord.gg/ZaqzPTW6xu" target="_blank" rel="noopener noreferrer" className="mt-6 inline-block">
             <Button>Join the Discord</Button>
           </a>
         </div>

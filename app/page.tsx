@@ -155,7 +155,7 @@ async function handleCheckout(stripePriceId: string, quantity: number = 1) {
 // COMPONENTS
 // ============================================================
 
-const DISCORD_URL = 'https://discord.gg/ThpTfdhVv'
+const DISCORD_URL = 'https://discord.gg/ZaqzPTW6xu'
 
 function DiscordPopup() {
   const [visible, setVisible] = useState(false)
