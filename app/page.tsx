@@ -155,68 +155,56 @@ async function handleCheckout(stripePriceId: string, quantity: number = 1) {
 // COMPONENTS
 // ============================================================
 
-const DISCORD_URL = 'https://discord.gg/ZaqzPTW6xu'
-
-function DiscordPopup() {
+function DemoNotice() {
   const [visible, setVisible] = useState(false)
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [understood, setUnderstood] = useState(false)
 
   useEffect(() => {
-    if (sessionStorage.getItem('discord_popup_seen')) return
-    const t = setTimeout(() => setVisible(true), 8000)
+    if (sessionStorage.getItem('demo_notice_seen')) return
+    const t = setTimeout(() => setVisible(true), 4000)
     return () => clearTimeout(t)
   }, [])
 
   const dismiss = () => {
-    sessionStorage.setItem('discord_popup_seen', '1')
+    sessionStorage.setItem('demo_notice_seen', '1')
     setVisible(false)
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    sessionStorage.setItem('discord_popup_seen', '1')
-
-    // Capture the email to our own list (fire-and-forget — never block entry).
-    fetch('/api/discord-signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
-    }).catch(() => {})
-
-    // Open Discord immediately, inside the click gesture so it isn't blocked.
-    window.open(DISCORD_URL, '_blank', 'noopener,noreferrer')
-    setSubmitted(true)
   }
 
   if (!visible) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4" style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)' }}>
-      <div className="relative bg-[#0f0f23] border border-[#4ecdc4]/40 rounded-2xl shadow-2xl w-full max-w-sm p-8 text-center">
-        <button onClick={dismiss} className="absolute top-4 right-4 text-white/40 hover:text-white text-xl">✕</button>
-        <div className="text-4xl mb-4">💬</div>
-        {!submitted ? (
-          <>
-            <h2 className="text-xl font-black text-white mb-2">Join the Community</h2>
-            <p className="text-white/60 text-sm mb-6">Drop your email and get straight to the Discord — where the real conversations happen.</p>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="your@email.com"
-                className="w-full bg-white/10 border border-white/20 focus:border-[#4ecdc4] rounded-lg px-4 py-3 text-white placeholder-white/40 outline-none text-sm" />
-              <button type="submit" className="w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold py-3 rounded-lg text-sm transition">Join the Discord →</button>
-            </form>
-            <button onClick={dismiss} className="mt-4 text-white/30 hover:text-white/60 text-xs transition">No thanks</button>
-          </>
-        ) : (
-          <>
-            <h2 className="text-xl font-black text-white mb-3">You&apos;re in! 🎉</h2>
-            <p className="text-white/60 text-sm mb-6">Discord is opening in a new tab. If it didn&apos;t, click below.</p>
-            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" onClick={dismiss}
-              className="inline-block w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold py-3 rounded-lg text-sm transition">
-              Open Discord →
-            </a>
-          </>
-        )}
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4" style={{ background: 'rgba(0,0,0,0.78)', backdropFilter: 'blur(6px)' }}>
+      <div className="relative bg-[#0f0f23] border border-[#4ecdc4]/40 rounded-2xl shadow-2xl w-full max-w-md p-8 text-center">
+        <button onClick={dismiss} aria-label="Close" className="absolute top-4 right-4 text-white/40 hover:text-white text-xl">✕</button>
+        <div className="text-4xl mb-4">🚧</div>
+        <h2 className="text-xl font-black text-white mb-3">This Is a Demo — Work in Progress</h2>
+        <p className="text-white/70 text-sm mb-4 leading-relaxed">
+          Welcome. Right now this site is a <span className="text-[#4ecdc4] font-semibold">live demo</span>, not a fully running store.
+          It&apos;s here so you can check in on my progress as an entrepreneur and a coding individual while I keep building.
+        </p>
+        <p className="text-white/70 text-sm mb-6 leading-relaxed">
+          Some links, products, and features aren&apos;t fully wired up yet — and that&apos;s on purpose.
+          <span className="text-white font-semibold"> It takes time to perfect excellence</span>, and I&apos;d rather do it right than rush it.
+          Thanks for watching it come to life.
+        </p>
+
+        <label className="flex items-start gap-3 text-left bg-white/5 border border-white/10 rounded-lg px-4 py-3 mb-5 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={understood}
+            onChange={e => setUnderstood(e.target.checked)}
+            className="mt-0.5 h-4 w-4 accent-[#4ecdc4] flex-shrink-0"
+          />
+          <span className="text-white/80 text-sm">I understand this is a demo website that&apos;s still being built.</span>
+        </label>
+
+        <button
+          onClick={dismiss}
+          disabled={!understood}
+          className="w-full bg-[#4ecdc4] hover:bg-[#3db8b0] disabled:opacity-40 disabled:cursor-not-allowed text-[#0f0f23] font-bold py-3 rounded-lg text-sm transition"
+        >
+          Got it — let me look around →
+        </button>
       </div>
     </div>
   )
@@ -234,10 +222,6 @@ function Navbar() {
           <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Shop</a>
           <Link href="/free-resources" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Free Resources</Link>
           <Link href="/contribute" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Contribute</Link>
-          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm bg-[#5865F2]/20 hover:bg-[#5865F2]/40 border border-[#5865F2]/40 text-[#7289da] hover:text-white px-3 py-1.5 rounded-full transition">
-            Discord
-          </a>
           <Link href="/cart" className="text-sm px-4 py-2 bg-white text-[#0f0f23] hover:bg-gray-200 rounded-full font-bold transition">🛒 Cart</Link>
         </div>
         <button className="md:hidden text-white text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -250,7 +234,6 @@ function Navbar() {
           <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Shop</a>
           <Link href="/free-resources" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Free Resources</Link>
           <Link href="/contribute" className="text-white/80 hover:text-[#4ecdc4] transition font-medium">Contribute</Link>
-          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="text-[#7289da] font-medium">Discord</a>
           <Link href="/cart" className="btn-primary text-sm py-3 px-6 w-full mt-2 text-center">🛒 Cart</Link>
         </div>
       )}
@@ -619,7 +602,7 @@ function Footer() {
 export default function Home() {
   return (
     <main>
-      <DiscordPopup />
+      <DemoNotice />
       <Navbar />
       <TrustBar />
       <HeroSection />
