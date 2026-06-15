@@ -9,16 +9,16 @@ import Link from 'next/link'
 const HERO_PRODUCT = {
   id: 'massager-001',
   name: 'Back Neck & Shoulder Massager',
-  tagline: 'turn long days into calm nights.',
-  description: '16 deep-kneading nodes with optional heat, 3 speeds, direction control, and adjustable straps. 15-minute auto shut-off with overheat protection.',
-  originalPrice: 159.99,
+  tagline: 'Turn long days into calm nights.',
+  description: '16 deep-kneading massage heads with optional heat, 3 speeds, direction control, and adjustable straps. 15-minute auto shut-off with overheat protection.',
+  originalPrice: 106.65,
   salePrice: 79.99,
   rating: 5,
   reviewCount: 449,
   stripePriceId: 'price_1TfQKS0iayan8LQgf8dbXQxe',
   image: 'https://ergonomiclux.com/cdn/shop/files/1_277def93-2402-48c5-836f-c8c0bfc08506.webp?v=1768458072&width=1946',
   features: [
-    { icon: '🔄', text: '16 Deep-Kneading Nodes' },
+    { icon: '🔄', text: '16 Deep-Kneading Massage Heads' },
     { icon: '🔥', text: 'Optional Soothing Heat' },
     { icon: '⚡', text: '3 Speeds + Direction Control' },
     { icon: '🎯', text: 'Adjustable Straps for Pressure' },
@@ -78,7 +78,7 @@ const RECOMMENDED_PRODUCTS = [
 const TESTIMONIALS = [
   {
     name: 'Mirabela',
-    text: 'The kneading nodes hit the tight spots in my neck and shoulders, and the optional heat makes it feel extra soothing. I like that I can change the direction and speed, and the straps help me control the pressure exactly how I want.',
+    text: 'The massage heads hit the tight spots in my neck and shoulders, and the optional heat makes it feel extra soothing. I like that I can change the direction and speed, and the straps help me control the pressure exactly how I want.',
     rating: 5,
   },
   {
@@ -218,7 +218,7 @@ function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f0f23]/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="text-2xl font-black text-white tracking-tight">Big Willy Style</a>
+        <a href="/" className="text-2xl font-black text-white tracking-tight">Big Willie Style</a>
         <div className="hidden md:flex items-center gap-6">
           <Link href="/about" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">About</Link>
           <a href="#products" className="text-white/80 hover:text-[#4ecdc4] transition font-medium text-sm">Shop</a>
@@ -299,7 +299,7 @@ function HeroSection() {
           <div className="flex items-center gap-4 mb-8">
             <span className="text-white/40 line-through text-xl">${HERO_PRODUCT.originalPrice}</span>
             <span className="text-4xl font-black text-[#4ecdc4]">${HERO_PRODUCT.salePrice}</span>
-            <span className="sale-badge">50% OFF</span>
+            <span className="sale-badge">25% OFF</span>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -562,7 +562,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-black text-white mb-4">Big Willy Style</h3>
+            <h3 className="text-2xl font-black text-white mb-4">Big Willie Style</h3>
             <p className="text-white/50 leading-relaxed max-w-sm">
               Premium wellness and recovery products designed for everyday relief. Turn long days into calm nights.
             </p>
@@ -593,7 +593,7 @@ function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-sm">
-            © 2024 Big Willy Style. All rights reserved.
+            © {new Date().getFullYear()} Big Willie Style. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-white/30 hover:text-[#4ecdc4] transition text-sm">Privacy Policy</a>

@@ -6,7 +6,7 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'Big Willy Style | Premium Wellness & Recovery',
+  title: 'Big Willie Style | Premium Wellness & Recovery',
   description: 'Turn long days into calm nights. Premium massage and recovery products for everyday relief.',
   keywords: 'neck massager, shoulder massager, wellness, recovery, relaxation, massage therapy',
 }
