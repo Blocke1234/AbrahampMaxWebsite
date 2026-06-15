@@ -470,14 +470,11 @@ function ProductsSection() {
             Bundle & Save 20%
           </h3>
           <p className="text-white/60 mb-8 max-w-lg mx-auto">
-            Get the massager + any 2 recovery products and save 20% automatically at checkout.
+            Pick any 3 or more products and save 20% automatically at checkout.
           </p>
-          <button
-            onClick={() => handleCheckout(HERO_PRODUCT.stripePriceId)}
-            className="btn-primary"
-          >
+          <Link href="/bundle" className="btn-primary inline-block">
             Build Your Bundle
-          </button>
+          </Link>
         </div>
       </div>
     </section>
