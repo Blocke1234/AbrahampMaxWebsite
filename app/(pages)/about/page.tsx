@@ -26,12 +26,12 @@ export default function AboutPage() {
       {/* Opening Quote */}
       <section className="px-6 pt-20 pb-12 max-w-4xl mx-auto text-center">
         <blockquote className="text-3xl md:text-5xl font-bold leading-tight text-white">
-          &ldquo;I didn&apos;t study the game from the sideline.
-          I played it — in seven states, six countries, and every room
-          they said I didn&apos;t belong in.&rdquo;
+          &ldquo;I didn&apos;t just survive the game — I was carried through it.
+          Blessed to still be breathing, and called to give every ounce
+          of it back to the world.&rdquo;
         </blockquote>
         <p className="mt-6 text-[#4ecdc4] font-semibold tracking-widest uppercase text-sm">
-          — Blake Willette
+          — BigWillieStyle &middot; Blake Willette
         </p>
       </section>
 
