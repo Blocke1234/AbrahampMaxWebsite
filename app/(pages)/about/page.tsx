@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div>
               <p className="text-xs uppercase tracking-widest text-[#4ecdc4] font-semibold mb-2">Introduction</p>
               <p className="text-lg text-white/70 leading-relaxed">
-                I&apos;m Blake Willette — veteran, licensed professional, salesman, traveler, and
+                I&apos;m Blake Willette — Veteran, licensed professional, salesman, traveler, and
                 creator. Four years in uniform. A decade in sales. Licenses in insurance, taxes,
                 and real estate in progress. I&apos;ve lived in seven U.S. states and visited six
                 countries. This site is everything I do, in one place.
@@ -68,8 +68,8 @@ export default function AboutPage() {
               <p className="text-lg text-white/70 leading-relaxed">
                 To build the most honest, high-value personal brand on the internet — content
                 that actually teaches, products that actually work, and a community that actually
-                gets access to the real me. No gatekeeper but the paywall, and the paywall is
-                fair.
+                gets access to the real me. Most of it is free. What isn&apos;t, earns its price —
+                and pays you back tenfold.
               </p>
             </div>
 
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 title: 'Community',
                 body: 'Join the Discord for direct access, real conversations, and exclusive drops that never hit the public feed.',
                 cta: 'Join Discord',
-                href: 'https://discord.gg/ThpTfdhVv',
+                href: 'https://discord.gg/ZaqzPTW6xu',
               },
             ].map((item, i) => (
               <div
