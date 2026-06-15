@@ -7,7 +7,7 @@ import { Button } from '../../components/ui/Button'
 
 const TravelMap = dynamic(() => import('../../components/TravelMap'), { ssr: false })
 
-const CALENDLY_URL = 'https://calendly.com/blakewillette'
+const CALENDLY_URL = 'https://calendly.com/bwillette2000/bigwilliestyle'
 
 const schedule = [
   { day: 'Monday', platforms: 'YouTube + TikTok', time: '7:00 PM EST', type: 'Content Drop' },
