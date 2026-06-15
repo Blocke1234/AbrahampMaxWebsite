@@ -336,7 +336,7 @@ function FeaturesSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-black text-center mb-4">
-          <span className="gradient-text">built for daily relief</span> where you hold tension most.
+          <span className="gradient-text">Built for daily relief</span> where you hold tension most.
         </h2>
         <p className="text-center text-gray-500 text-lg mb-16 max-w-2xl mx-auto">
           Professional-grade massage therapy, from the comfort of your couch.
@@ -390,7 +390,7 @@ function TestimonialsSection() {
     <section id="reviews" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-black text-center mb-4">
-          real results, <span className="gradient-text">real customers.</span>
+          Real results, <span className="gradient-text">real customers.</span>
         </h2>
         <p className="text-center text-gray-500 text-lg mb-16">
           Join hundreds who&apos;ve found relief.
