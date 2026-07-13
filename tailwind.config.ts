@@ -2,32 +2,35 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        navy: {
-          DEFAULT: '#0f0f23',
-          light: '#1a1a2e',
+        ink: {
+          DEFAULT: '#0A0A08',
+          soft: '#12120F',
         },
-        teal: {
-          DEFAULT: '#4ecdc4',
-          dark: '#3db8b0',
+        bone: {
+          DEFAULT: '#EDEAE2',
+          dim: '#A8A399',
+          faint: '#6B675E',
         },
-        amber: '#f0a500',
-        coral: '#ff6b6b',
-        cream: '#faf9f6',
-        charcoal: '#2d2d2d',
+        gold: {
+          DEFAULT: '#C6A15B',
+          bright: '#D9B878',
+        },
+        line: 'rgba(237,234,226,0.12)',
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
-      borderRadius: {
-        '2xl': '1rem',
-        '3xl': '1.5rem',
+      letterSpacing: {
+        kicker: '0.22em',
+      },
+      maxWidth: {
+        prose: '42rem',
       },
     },
   },
