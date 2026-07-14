@@ -14,7 +14,7 @@ const config: Config = {
         bone: {
           DEFAULT: '#EDEAE2',
           dim: '#A8A399',
-          faint: '#6B675E',
+          faint: '#837E73',
         },
         gold: {
           DEFAULT: '#C6A15B',

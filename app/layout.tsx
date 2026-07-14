@@ -3,6 +3,7 @@ import { Inter, Libre_Caslon_Text } from 'next/font/google'
 import './globals.css'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import { GoogleAnalytics, MetaPixel, TikTokPixel } from './components/Analytics'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -47,6 +48,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${caslon.variable}`}>
+      <head>
+        <GoogleAnalytics />
+        <MetaPixel />
+        <TikTokPixel />
+      </head>
       <body className="font-sans bg-ink text-bone">
         <Navigation />
         <main>{children}</main>
