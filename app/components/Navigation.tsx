@@ -7,6 +7,7 @@ import { CALENDLY_URL } from './BookCallButton'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/products', label: 'Shop' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -46,7 +47,7 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Mobile: only the two secondary pages, kept tiny; CTA stays dominant */}
+          {/* Mobile: only the secondary pages, kept tiny; CTA stays dominant */}
           <ul className="flex sm:hidden items-center gap-4">
             {links
               .filter((l) => l.href !== '/')

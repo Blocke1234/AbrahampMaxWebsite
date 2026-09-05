@@ -29,7 +29,7 @@ const receipts = [
   {
     n: '04',
     fact: 'Licensed and still climbing',
-    note: 'Active life-insurance license. Active tax-prep license. Real estate in training. 7 states lived, 6 countries traveled.',
+    note: 'Active life-insurance license. Active tax-prep license. Real estate in training. 8 states lived, 7 countries traveled.',
   },
 ]
 
