@@ -15,3 +15,15 @@ package-lock.json
 /public/robots.txt
 /public/sitemap.xml
 /public/sitemap-*.xml
+
+# Sentry build-time auth token (NEVER commit)
+.env.sentry-build-plugin
+.sentryclirc
+
+# local env variants
+.env*.local
+!.env.local.example
+
+# local env backups
+.env*.bak*
+*.bak
