@@ -4,6 +4,7 @@ import './globals.css'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import { GoogleAnalytics, MetaPixel, TikTokPixel } from './components/Analytics'
+import { PostHogProvider } from './providers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -54,9 +55,11 @@ export default function RootLayout({
         <TikTokPixel />
       </head>
       <body className="font-sans bg-ink text-bone">
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+        <PostHogProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   )
